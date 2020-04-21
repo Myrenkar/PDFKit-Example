@@ -19,11 +19,10 @@ final class PDFViewerView: View {
         view.displayDirection = .horizontal
         view.displayMode = .singlePageContinuous
         view.maxScaleFactor = 2.0
-        view.minScaleFactor = 0.75
+        view.minScaleFactor = view.scaleFactorForSizeToFit
         view.usePageViewController(true)
-        view.pageShadowsEnabled = false
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.enableDataDetectors = true
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 

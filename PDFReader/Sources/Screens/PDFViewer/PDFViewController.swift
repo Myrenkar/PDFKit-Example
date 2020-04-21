@@ -6,18 +6,14 @@ protocol PDFViewerViewControllerDelegate: AnyObject {
 }
 
 final class PDFViewerViewController: ViewController {
-
     private lazy var customView = PDFViewerView()
-    private let viewModel: PDFViewerViewModelProtocol
     private var disposal = Disposal()
-    private lazy var pageObservable = Observable<PDFPage?>(customView.pdfView.currentPage)
+    private let viewModel: PDFViewerViewModelProtocol
 
     weak var delegate: PDFViewerViewControllerDelegate?
 
     private lazy var gesureRecognizer: UITapGestureRecognizer = {
         let gesureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
-        gesureRecognizer.numberOfTapsRequired = 1
-        gesureRecognizer.delegate = self
         return gesureRecognizer
     }()
 
@@ -33,20 +29,11 @@ final class PDFViewerViewController: ViewController {
 
     private func setupObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(pageChanged), name: .PDFViewPageChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(annotationTapped(notification:)), name: .PDFViewAnnotationHit, object: nil)
     }
 
     override func loadView() {
         view = customView
-    }
-
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        coordinator.animate(alongsideTransition: { context in
-            if UIApplication.shared.statusBarOrientation.isLandscape {
-                self.customView.pdfView.displayMode = .twoUpContinuous
-            } else {
-                self.customView.pdfView.displayMode = .singlePageContinuous
-            }
-        })
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -59,55 +46,42 @@ final class PDFViewerViewController: ViewController {
         viewModel.document
             .observe { [weak self] (document, _) in
                 self?.customView.pdfView.document = document
-            }
-            .add(to: &disposal)
+        }
+        .add(to: &disposal)
     }
 
     override func setupProperties() {
         super.setupProperties()
         customView.pdfView.addGestureRecognizer(gesureRecognizer)
         
-        customView.toolboxView.directionButton.addTarget(self, action: #selector(directionButtonTapped), for: .touchUpInside)
+        customView.toolboxView.directionButton.addTarget(self, action: #selector(changeDisplayDirection), for: .touchUpInside)
         customView.toolboxView.thumbnailButton.addTarget(self, action: #selector(showThumbnail), for: .touchUpInside)
-        customView.toolboxView.resetButton.addTarget(self, action: #selector(displayModeButtonTapped), for: .touchUpInside)
+        customView.toolboxView.bookmarksButton.addTarget(self, action: #selector(bookMarksButtonTapped), for: .touchUpInside)
         customView.toolboxView.searchButton.addTarget(self, action: #selector(searchTapped), for: .touchUpInside)
     }
 
-    @objc private func directionButtonTapped() {
+    @objc private func changeDisplayDirection() {
         customView.pdfView.displayDirection = customView.pdfView.displayDirection.next
         scalePDFViewToFit()
     }
 
-    @objc private func displayModeButtonTapped() {
-        scalePDFViewToFit()
+    @objc private func bookMarksButtonTapped() {
+        
     }
 
-    func showSearchResult(result: PDFSelection) {
-        result.color = .red
-        customView.pdfView.highlightedSelections = [result]
-        customView.pdfView.setCurrentSelection(result, animate: true)
-
-        customView.pdfView.go(to: result)
-    }
 
     @objc private func searchTapped() {
         delegate?.didTapSearch(document: viewModel.document.value!)
     }
 
-    func scalePDFViewToFit() {
-        UIView.animate(withDuration: 0.2) {
-            self.customView.pdfView.scaleFactor = self.customView.pdfView.scaleFactorForSizeToFit
-            self.view.layoutIfNeeded()
-        }
-    }
-
     @objc private func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        let offset: CGFloat = 50
         let location = gesureRecognizer.location(in: customView.pdfView)
-        if location.x > 0 && location.x < 50 {
+        if location.x > 0 && location.x < offset {
             if customView.pdfView.canGoToPreviousPage {
                 customView.pdfView.goToPreviousPage(nil)
             }
-        } else if location.x < customView.pdfView.frame.width && location.x > customView.pdfView.frame.width - 50 {
+        } else if location.x < customView.pdfView.frame.width && location.x > customView.pdfView.frame.width - offset {
             if customView.pdfView.canGoToNextPage {
                 customView.pdfView.goToNextPage(nil)
             }
@@ -122,28 +96,28 @@ final class PDFViewerViewController: ViewController {
         }
     }
 
+    @objc func annotationTapped(notification: NSNotification) {
+        print("aalkdsad")
+    }
+
+
     @objc private func showThumbnail() {
         customView.pdfThumbnailView.pdfView = customView.pdfView
         customView.pdfThumbnailView.isHidden.toggle()
-//        scalePDFViewToFit()
     }
-}
 
-extension PDFDisplayDirection  {
-    var next:  PDFDisplayDirection {
-        switch self {
-            case .horizontal: return .vertical
-            case .vertical: return .horizontal
-            @unknown default: return .vertical
+
+    private func scalePDFViewToFit() {
+        UIView.animate(withDuration: 0.2) {
+            self.customView.pdfView.scaleFactor = self.customView.pdfView.scaleFactorForSizeToFit
+            self.view.layoutIfNeeded()
         }
     }
-}
 
-extension PDFViewerViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        if gesureRecognizer == self.gesureRecognizer {
-            return false
-        }
-        return true
+    func showSearchResult(result: PDFSelection) {
+        result.color = .red
+        customView.pdfView.highlightedSelections = [result]
+        customView.pdfView.setCurrentSelection(result, animate: true)
+        customView.pdfView.go(to: result)
     }
 }

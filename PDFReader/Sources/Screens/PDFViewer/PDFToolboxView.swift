@@ -2,28 +2,25 @@ import UIKit
 
 final class PDFToolboxView: View {
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [searchButton, resetButton, directionButton, pageCounter, thumbnailButton])
+        let stackView = UIStackView(arrangedSubviews: [searchButton, bookmarksButton, directionButton, pageCounter, thumbnailButton])
         stackView.axis = .horizontal
         stackView.spacing = 8
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
 
-    private(set) lazy var resetButton: UIButton = {
+    private(set) lazy var bookmarksButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Reset", for: .normal)
+        button.setImage(#imageLiteral(resourceName: "Bookmark-N"), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 10)
-        button.backgroundColor = .red
         button.translatesAutoresizingMaskIntoConstraints = false
-
         return button
     }()
 
     private(set) lazy var searchButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Search", for: .normal)
+        button.setImage(#imageLiteral(resourceName: "Search"), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 10)
-        button.backgroundColor = .magenta
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -32,16 +29,14 @@ final class PDFToolboxView: View {
         let button = UIButton()
         button.setTitle("Thumb", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 10)
-        button.backgroundColor = .green
+        button.backgroundColor = .red
         button.translatesAutoresizingMaskIntoConstraints = false
-
         return button
     }()
 
     private(set) lazy var directionButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Direction", for: .normal)
-        button.backgroundColor = .blue
+        button.setImage(#imageLiteral(resourceName: "Grid"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 10)
         return button
@@ -49,8 +44,10 @@ final class PDFToolboxView: View {
 
     private(set) lazy var pageCounter: UILabel = {
         let label = UILabel()
+        label.backgroundColor = UIColor.black.withAlphaComponent(0.70)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
+        label.textColor = .white
+        label.textAlignment = .center
         return label
     }()
 
@@ -66,6 +63,10 @@ final class PDFToolboxView: View {
 
     override func setupLayoutConstraints() {
         super.setupLayoutConstraints()
+        NSLayoutConstraint.activate([
+            pageCounter.widthAnchor.constraint(equalToConstant: 48)
+        ])
+
         stackView.constrainEdges(to: self)
     }
 }

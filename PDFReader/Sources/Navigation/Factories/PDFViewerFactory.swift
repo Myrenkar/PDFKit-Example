@@ -15,7 +15,7 @@ final class PDFViewerFactory: PDFViewerFactoryProtocol {
     }
 
     func buildDocumentListViewModeController(delegate: DocumentListViewModeControllerDelegate) -> DocumentListViewModeController {
-        let viewModel = DocumentListViewModel(names: ["comic", "text", "the_little_prince", "buying", "CarPlay"])
+        let viewModel = DocumentListViewModel(names: ["comic", "text", "the_little_prince", "buying", "CarPlay", "Sample"])
         let viewController = DocumentListViewModeController(viewModel: viewModel)
         viewController.delegate = delegate
         return viewController

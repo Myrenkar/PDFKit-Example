@@ -26,6 +26,8 @@
 		D23661CC244EB66F009322C3 /* UIKit.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23661CB244EB66F009322C3 /* UIKit.UITableView.swift */; };
 		D23661CE244EB705009322C3 /* SearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23661CD244EB705009322C3 /* SearchCellViewModel.swift */; };
 		D23661D0244EBAD2009322C3 /* DocumentsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23661CF244EBAD2009322C3 /* DocumentsCellViewModel.swift */; };
+		D23661D2244EC258009322C3 /* PDFKit.PDFDisplayDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23661D1244EC258009322C3 /* PDFKit.PDFDisplayDirection.swift */; };
+		D23661D6244EC747009322C3 /* Sample.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D23661D5244EC747009322C3 /* Sample.pdf */; };
 		D2764E202449B96E0099B15B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2764E1F2449B96E0099B15B /* Assets.xcassets */; };
 		D2764E6A2449BB160099B15B /* ReaderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2764E3A2449BB160099B15B /* ReaderCoordinator.swift */; };
 		D2764E6C2449BB160099B15B /* UIKit.UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2764E3E2449BB160099B15B /* UIKit.UIView.swift */; };
@@ -68,6 +70,8 @@
 		D23661CB244EB66F009322C3 /* UIKit.UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.UITableView.swift; sourceTree = "<group>"; };
 		D23661CD244EB705009322C3 /* SearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellViewModel.swift; sourceTree = "<group>"; };
 		D23661CF244EBAD2009322C3 /* DocumentsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsCellViewModel.swift; sourceTree = "<group>"; };
+		D23661D1244EC258009322C3 /* PDFKit.PDFDisplayDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFKit.PDFDisplayDirection.swift; sourceTree = "<group>"; };
+		D23661D5244EC747009322C3 /* Sample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Sample.pdf; sourceTree = "<group>"; };
 		D2764E132449B96B0099B15B /* PDFReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDFReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2764E1F2449B96E0099B15B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2764E222449B96E0099B15B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 		D23661C3244E9A75009322C3 /* Books */ = {
 			isa = PBXGroup;
 			children = (
+				D23661D5244EC747009322C3 /* Sample.pdf */,
 				D23661C1244E9A6D009322C3 /* buying.pdf */,
 				D23661C4244EA6D5009322C3 /* CarPlay.pdf */,
 				D2764E8A2449BDDE0099B15B /* comic.pdf */,
@@ -138,6 +143,24 @@
 				D23661BF244E98ED009322C3 /* the_little_prince.pdf */,
 			);
 			path = Books;
+			sourceTree = "<group>";
+		};
+		D23661D3244EC30A009322C3 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				D23661C9244EB61C009322C3 /* UIKit.UICollectionView.swift */,
+				D23661CB244EB66F009322C3 /* UIKit.UITableView.swift */,
+				D2764E3E2449BB160099B15B /* UIKit.UIView.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		D23661D4244EC311009322C3 /* PDFKit */ = {
+			isa = PBXGroup;
+			children = (
+				D23661D1244EC258009322C3 /* PDFKit.PDFDisplayDirection.swift */,
+			);
+			path = PDFKit;
 			sourceTree = "<group>";
 		};
 		D2764E0A2449B96B0099B15B = {
@@ -198,9 +221,8 @@
 		D2764E3D2449BB160099B15B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D23661C9244EB61C009322C3 /* UIKit.UICollectionView.swift */,
-				D23661CB244EB66F009322C3 /* UIKit.UITableView.swift */,
-				D2764E3E2449BB160099B15B /* UIKit.UIView.swift */,
+				D23661D3244EC30A009322C3 /* UIKit */,
+				D23661D4244EC311009322C3 /* PDFKit */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -364,6 +386,7 @@
 				D23661A9244A5E93009322C3 /* text.pdf in Resources */,
 				D23661C5244EA6D5009322C3 /* CarPlay.pdf in Resources */,
 				D2764E8B2449BDDF0099B15B /* comic.pdf in Resources */,
+				D23661D6244EC747009322C3 /* Sample.pdf in Resources */,
 				D2764E202449B96E0099B15B /* Assets.xcassets in Resources */,
 				D23661C2244E9A6D009322C3 /* buying.pdf in Resources */,
 				D23661C0244E98ED009322C3 /* the_little_prince.pdf in Resources */,
@@ -385,6 +408,7 @@
 				D2764E6C2449BB160099B15B /* UIKit.UIView.swift in Sources */,
 				D23661CE244EB705009322C3 /* SearchCellViewModel.swift in Sources */,
 				D23661B1244D7A50009322C3 /* DocumentListViewController.swift in Sources */,
+				D23661D2244EC258009322C3 /* PDFKit.PDFDisplayDirection.swift in Sources */,
 				D2764E7D2449BB160099B15B /* Lock.swift in Sources */,
 				D23661A52449C603009322C3 /* SceneDelegate.swift in Sources */,
 				D2764E762449BB160099B15B /* PDFViewerFactory.swift in Sources */,
