@@ -36,9 +36,8 @@ final class SearchViewController: ViewController {
 
         customView.tableView.delegate = self
         customView.tableView.dataSource = self
-        customView.tableView.registerClass(SearchCell.self)
-
         customView.searchBar.delegate = self
+        customView.tableView.registerClass(SearchCell.self)
     }
 }
 
@@ -48,12 +47,12 @@ extension SearchViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard viewModel.searchResults.value.count > 0 else { return UITableViewCell() }
         let item = viewModel.searchResults.value[indexPath.row]
-        let cell: SearchCell = tableView.dequeue(forIndexPath: indexPath)
+        let cell: SearchCell = tableView.dequeue()
         let cellViewModel = SearchCellViewModel(selection: item.selection, outline: item.outline)
         cell.pageNumberLabel.text = cellViewModel.page
         cell.resultLabel.attributedText = cellViewModel.title
-
         return cell
     }
 }

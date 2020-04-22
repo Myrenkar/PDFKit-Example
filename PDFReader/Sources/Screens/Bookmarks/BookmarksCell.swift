@@ -1,7 +1,6 @@
 import UIKit
 
-final class DocumentCell: CollectionViewCell {
-
+final class BookmarksCell: CollectionViewCell {
     // MARK: - Subviews
     private(set) lazy var imageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
@@ -20,10 +19,10 @@ final class DocumentCell: CollectionViewCell {
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         label.lineBreakMode = .byWordWrapping
-
         return label
     }()
 
+    
     // MARK: - Setup
     override func setupViewHierarchy() {
         super.setupViewHierarchy()
@@ -44,4 +43,5 @@ final class DocumentCell: CollectionViewCell {
             nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ])
     }
+
 }

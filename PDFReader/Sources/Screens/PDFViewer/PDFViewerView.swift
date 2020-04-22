@@ -16,7 +16,7 @@ final class PDFViewerView: View {
         let view = PDFView()
         view.pageBreakMargins = .zero
         view.autoScales = true
-        view.displayDirection = .horizontal
+        view.displayDirection = .vertical
         view.displayMode = .singlePageContinuous
         view.maxScaleFactor = 2.0
         view.minScaleFactor = view.scaleFactorForSizeToFit

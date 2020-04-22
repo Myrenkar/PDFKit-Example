@@ -40,5 +40,4 @@ final class SearchCellViewModel: SearchCellViewModelProtocol {
             return "Page: \(text)"
         }
     }
-
 }

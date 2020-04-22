@@ -2,7 +2,7 @@ import UIKit
 
 final class PDFToolboxView: View {
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [searchButton, bookmarksButton, directionButton, pageCounter, thumbnailButton])
+        let stackView = UIStackView(arrangedSubviews: [searchButton, bookmarksButton, directionButton, pageCounter, thumbnailButton, tableOfContentsButton, showBookmarksButton ])
         stackView.axis = .horizontal
         stackView.spacing = 8
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -12,6 +12,15 @@ final class PDFToolboxView: View {
     private(set) lazy var bookmarksButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "Bookmark-N"), for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 10)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    private(set) lazy var showBookmarksButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("show", for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 10)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -37,6 +46,14 @@ final class PDFToolboxView: View {
     private(set) lazy var directionButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "Grid"), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = .systemFont(ofSize: 10)
+        return button
+    }()
+
+    private(set) lazy var tableOfContentsButton: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "List"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 10)
         return button

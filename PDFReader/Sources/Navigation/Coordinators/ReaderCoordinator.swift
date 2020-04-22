@@ -30,6 +30,16 @@ extension ReaderCoordinator: DocumentListViewModeControllerDelegate {
 }
 
 extension ReaderCoordinator: PDFViewerViewControllerDelegate {
+    func didTapBookmarks(document: PDFDocument) {
+        let viewController = factory.buildBookmarksViewController(document: document, delegate: self)
+        rootViewController.pushViewController(viewController, animated: true)
+    }
+
+    func didTapTableOfContents(document: PDFDocument) {
+        let viewController = factory.buildTableOfContentsViewController(document: document, delegate: self)
+        rootViewController.pushViewController(viewController, animated: true)
+    }
+
     func didTapSearch(document: PDFDocument) {
         let searchViewController = factory.buildSearchViewController(document: document, delegate: self)
         rootViewController.present(searchViewController, animated: true)
@@ -42,6 +52,24 @@ extension ReaderCoordinator: SearchViewControllerDelegate {
             if let viewer = self.rootViewController.topViewController as? PDFViewerViewController {
                 viewer.showSearchResult(result: result.selection)
             }
+        }
+    }
+}
+
+extension ReaderCoordinator: TableOfContentViewControllerDelegate {
+    func didSelect(destination: PDFDestination) {
+        rootViewController.popViewController(animated: true)
+        if let viewer = self.rootViewController.topViewController as? PDFViewerViewController {
+            viewer.show(destination: destination)
+        }
+    }
+}
+
+extension ReaderCoordinator: BookmarksViewControllerDelegate {
+    func didSelect(page: PDFPage) {
+        rootViewController.popViewController(animated: true)
+        if let viewer = self.rootViewController.topViewController as? PDFViewerViewController {
+            viewer.show(page: page)
         }
     }
 }

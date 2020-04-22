@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D20DC76724502F08002330F8 /* TableOfContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20DC76624502F08002330F8 /* TableOfContentView.swift */; };
+		D20DC76924502F6B002330F8 /* TableOfContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20DC76824502F6B002330F8 /* TableOfContentViewModel.swift */; };
+		D20DC76B245030C0002330F8 /* TableOfContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20DC76A245030C0002330F8 /* TableOfContentViewController.swift */; };
+		D20DC76D245031AF002330F8 /* TableOfContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20DC76C245031AF002330F8 /* TableOfContentCell.swift */; };
+		D20DC77324503FC2002330F8 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20DC77224503F9F002330F8 /* BookmarksView.swift */; };
+		D20DC77424503FD6002330F8 /* BookmarksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20DC76F24503F9F002330F8 /* BookmarksViewModel.swift */; };
+		D20DC775245040C3002330F8 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20DC77124503F9F002330F8 /* BookmarksViewController.swift */; };
+		D20DC776245040C6002330F8 /* BookmarksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20DC77024503F9F002330F8 /* BookmarksCell.swift */; };
+		D20DC77824504E4F002330F8 /* BookmarksCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20DC77724504E4F002330F8 /* BookmarksCellViewModel.swift */; };
+		D20DC77E24505877002330F8 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20DC77D24505877002330F8 /* CollectionViewCell.swift */; };
 		D23661A52449C603009322C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23661A42449C603009322C3 /* SceneDelegate.swift */; };
 		D23661A72449D4D5009322C3 /* PDFToolboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23661A62449D4D5009322C3 /* PDFToolboxView.swift */; };
 		D23661A9244A5E93009322C3 /* text.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D23661A8244A5E93009322C3 /* text.pdf */; };
@@ -51,6 +61,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D20DC76624502F08002330F8 /* TableOfContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOfContentView.swift; sourceTree = "<group>"; };
+		D20DC76824502F6B002330F8 /* TableOfContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOfContentViewModel.swift; sourceTree = "<group>"; };
+		D20DC76A245030C0002330F8 /* TableOfContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOfContentViewController.swift; sourceTree = "<group>"; };
+		D20DC76C245031AF002330F8 /* TableOfContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOfContentCell.swift; sourceTree = "<group>"; };
+		D20DC76F24503F9F002330F8 /* BookmarksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewModel.swift; sourceTree = "<group>"; };
+		D20DC77024503F9F002330F8 /* BookmarksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksCell.swift; sourceTree = "<group>"; };
+		D20DC77124503F9F002330F8 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		D20DC77224503F9F002330F8 /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
+		D20DC77724504E4F002330F8 /* BookmarksCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksCellViewModel.swift; sourceTree = "<group>"; };
+		D20DC77D24505877002330F8 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		D23661A42449C603009322C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D23661A62449D4D5009322C3 /* PDFToolboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFToolboxView.swift; sourceTree = "<group>"; };
 		D23661A8244A5E93009322C3 /* text.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = text.pdf; sourceTree = "<group>"; };
@@ -107,6 +127,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D20DC76524502EEB002330F8 /* TableOfContent */ = {
+			isa = PBXGroup;
+			children = (
+				D20DC76C245031AF002330F8 /* TableOfContentCell.swift */,
+				D20DC76624502F08002330F8 /* TableOfContentView.swift */,
+				D20DC76A245030C0002330F8 /* TableOfContentViewController.swift */,
+				D20DC76824502F6B002330F8 /* TableOfContentViewModel.swift */,
+			);
+			path = TableOfContent;
+			sourceTree = "<group>";
+		};
+		D20DC76E24503F96002330F8 /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				D20DC77024503F9F002330F8 /* BookmarksCell.swift */,
+				D20DC77724504E4F002330F8 /* BookmarksCellViewModel.swift */,
+				D20DC77224503F9F002330F8 /* BookmarksView.swift */,
+				D20DC77124503F9F002330F8 /* BookmarksViewController.swift */,
+				D20DC76F24503F9F002330F8 /* BookmarksViewModel.swift */,
+			);
+			path = Bookmarks;
+			sourceTree = "<group>";
+		};
 		D23661AA244D7A2B009322C3 /* DocumentList */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,8 +264,8 @@
 		D2764E3D2449BB160099B15B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D23661D3244EC30A009322C3 /* UIKit */,
 				D23661D4244EC311009322C3 /* PDFKit */,
+				D23661D3244EC30A009322C3 /* UIKit */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,9 +273,11 @@
 		D2764E412449BB160099B15B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				D20DC76E24503F96002330F8 /* Bookmarks */,
 				D23661AA244D7A2B009322C3 /* DocumentList */,
 				D2764E892449BB8B0099B15B /* PDFViewer */,
 				D23661B6244DAEFF009322C3 /* Search */,
+				D20DC76524502EEB002330F8 /* TableOfContent */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -248,9 +293,9 @@
 		D2764E4E2449BB160099B15B /* Abstractions */ = {
 			isa = PBXGroup;
 			children = (
-				D2764E512449BB160099B15B /* UIKit */,
-				D2764E562449BB160099B15B /* Observable */,
 				D2764E5A2449BB160099B15B /* Application */,
+				D2764E562449BB160099B15B /* Observable */,
+				D2764E512449BB160099B15B /* UIKit */,
 			);
 			path = Abstractions;
 			sourceTree = "<group>";
@@ -262,6 +307,7 @@
 				D2764E552449BB160099B15B /* TableViewController.swift */,
 				D2764E532449BB160099B15B /* View.swift */,
 				D2764E522449BB160099B15B /* ViewController.swift */,
+				D20DC77D24505877002330F8 /* CollectionViewCell.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -400,23 +446,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D20DC775245040C3002330F8 /* BookmarksViewController.swift in Sources */,
+				D20DC76724502F08002330F8 /* TableOfContentView.swift in Sources */,
 				D2764E712449BB160099B15B /* PDFViewerViewModel.swift in Sources */,
 				D23661A72449D4D5009322C3 /* PDFToolboxView.swift in Sources */,
+				D20DC76D245031AF002330F8 /* TableOfContentCell.swift in Sources */,
 				D2764E702449BB160099B15B /* PDFViewerView.swift in Sources */,
 				D2764E792449BB160099B15B /* ViewController.swift in Sources */,
 				D2764E6A2449BB160099B15B /* ReaderCoordinator.swift in Sources */,
 				D2764E6C2449BB160099B15B /* UIKit.UIView.swift in Sources */,
 				D23661CE244EB705009322C3 /* SearchCellViewModel.swift in Sources */,
+				D20DC76924502F6B002330F8 /* TableOfContentViewModel.swift in Sources */,
 				D23661B1244D7A50009322C3 /* DocumentListViewController.swift in Sources */,
 				D23661D2244EC258009322C3 /* PDFKit.PDFDisplayDirection.swift in Sources */,
 				D2764E7D2449BB160099B15B /* Lock.swift in Sources */,
 				D23661A52449C603009322C3 /* SceneDelegate.swift in Sources */,
+				D20DC77424503FD6002330F8 /* BookmarksViewModel.swift in Sources */,
 				D2764E762449BB160099B15B /* PDFViewerFactory.swift in Sources */,
 				D2764E822449BB160099B15B /* Reusable.swift in Sources */,
 				D23661BC244DAF23009322C3 /* SearchViewController.swift in Sources */,
 				D2764E7B2449BB160099B15B /* TableViewCell.swift in Sources */,
 				D2764E852449BB160099B15B /* ApplicationController.swift in Sources */,
+				D20DC776245040C6002330F8 /* BookmarksCell.swift in Sources */,
 				D23661BE244DB308009322C3 /* SearchCell.swift in Sources */,
+				D20DC77824504E4F002330F8 /* BookmarksCellViewModel.swift in Sources */,
 				D2764E882449BB870099B15B /* PDFViewController.swift in Sources */,
 				D23661CA244EB61C009322C3 /* UIKit.UICollectionView.swift in Sources */,
 				D23661B8244DAF11009322C3 /* SearchView.swift in Sources */,
@@ -426,12 +479,15 @@
 				D23661BA244DAF17009322C3 /* SearchViewModel.swift in Sources */,
 				D2764E7E2449BB160099B15B /* Disposable.swift in Sources */,
 				D23661AF244D7A47009322C3 /* DocumentListViewModel.swift in Sources */,
+				D20DC76B245030C0002330F8 /* TableOfContentViewController.swift in Sources */,
 				D23661AD244D7A42009322C3 /* DocumentListView.swift in Sources */,
 				D23661B5244D931F009322C3 /* DocumentsCell.swift in Sources */,
+				D20DC77E24505877002330F8 /* CollectionViewCell.swift in Sources */,
 				D23661B3244D7A90009322C3 /* DocumentListLayout.swift in Sources */,
 				D23661CC244EB66F009322C3 /* UIKit.UITableView.swift in Sources */,
 				D2764E7A2449BB160099B15B /* View.swift in Sources */,
 				D2764E7C2449BB160099B15B /* TableViewController.swift in Sources */,
+				D20DC77324503FC2002330F8 /* BookmarksView.swift in Sources */,
 				D2764E802449BB160099B15B /* ApplicationDependencies.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,12 +625,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q74286BTD6;
 				INFOPLIST_FILE = PDFReader/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pdfreader.PDFReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartapps.pdfreade;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -586,12 +643,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q74286BTD6;
 				INFOPLIST_FILE = PDFReader/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pdfreader.PDFReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartapps.pdfreade;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

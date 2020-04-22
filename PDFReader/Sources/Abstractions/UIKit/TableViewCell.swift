@@ -31,5 +31,5 @@ class TableViewCell: UITableViewCell {
     }
 }
 
-extension TableViewCell: Reusable {}
+extension UITableViewCell: Reusable {}
 
